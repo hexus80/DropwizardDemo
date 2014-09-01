@@ -26,7 +26,7 @@ public class DemoResource {
 
     @GET
     @Timed
-    public Saying sayHello(@QueryParam("defaultName")Optional<String> name) {
+    public Saying sayHello(@QueryParam("defaultName") Optional<String> name) {
         final String value = String.format(template, name.or(defaultName));
         return new Saying(counter.incrementAndGet(), value);
     }

@@ -1,6 +1,6 @@
 package com.hexus.dropwizarddemo.resources;
 
-import com.codahale.metrics.annotation.Timed;
+import com.codahale.metrics.annotation.Metered;
 import com.hexus.dropwizarddemo.api.Currency;
 
 import javax.ws.rs.GET;
@@ -14,7 +14,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class Currencies {
     @GET
-    @Timed
+    @Metered
     public List<Currency> getCurrencies() {
         List<Currency> currencies = new ArrayList<>();
         currencies.add(new Currency("Euro", "EUR"));

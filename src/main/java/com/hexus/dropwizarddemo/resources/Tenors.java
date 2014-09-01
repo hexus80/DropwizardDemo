@@ -1,6 +1,6 @@
 package com.hexus.dropwizarddemo.resources;
 
-import com.codahale.metrics.annotation.Timed;
+import com.codahale.metrics.annotation.Gauge;
 import com.hexus.dropwizarddemo.api.Tenor;
 
 import javax.ws.rs.GET;
@@ -14,7 +14,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class Tenors {
     @GET
-    @Timed
+    @Gauge
     public List<Tenor> getTenors() {
         return Arrays.asList(Tenor.values());
     }

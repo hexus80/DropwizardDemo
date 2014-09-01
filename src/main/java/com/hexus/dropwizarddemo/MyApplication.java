@@ -1,5 +1,6 @@
 package com.hexus.dropwizarddemo;
 
+import com.hexus.dropwizarddemo.health.DemoHealthCheck;
 import com.hexus.dropwizarddemo.resources.Counterparties;
 import com.hexus.dropwizarddemo.resources.Currencies;
 import com.hexus.dropwizarddemo.resources.DemoResource;
@@ -32,5 +33,7 @@ public class MyApplication extends Application<MyApplicationConfiguration> {
 
         final Currencies currencies = new Currencies();
         environment.jersey().register(currencies);
+
+        environment.healthChecks().register("DemoHealthCheck", new DemoHealthCheck(myApplicationConfiguration.getTemplate()));
     }
 }
